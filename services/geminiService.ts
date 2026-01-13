@@ -1,5 +1,6 @@
-import { GoogleGenerativeAI } from "@google/generative-ai"; // Corregí el import (era GoogleGenAI, pero SDK oficial es GoogleGenerativeAI)
+import { GoogleGenAI } from "@google/genai";
 import { ModuleType, GlobalIntelligence, MatchDashboardData, NeuralDebateResult } from "../types";
+/**
 
 // ... (tu callWithRetry se queda intacto, está perfecto)
 
