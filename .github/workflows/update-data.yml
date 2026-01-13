@@ -1,0 +1,20 @@
+name: Update Sports Data
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Corre todos los días a medianoche UTC
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run script to fetch data
+        run: python scripts/fetch_pronosticos.py  # Tu script que genera pronósticos y los sube a Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
